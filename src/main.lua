@@ -1,10 +1,10 @@
 push = require 'push'
 
-WINDOW_WIDTH = 1366 
-WINDOW_HEIGHT = 768
+WINDOW_WIDTH = 1280 
+WINDOW_HEIGHT = 720
 
-VIRTUAL_HEIGHT = 640
-VIRTUAL_WIDTH = 480
+VIRTUAL_WIDTH = 432
+VIRTUAL_HEIGHT = 243
 
 -- Startup function
 function love.load()
@@ -16,6 +16,8 @@ function love.load()
     vsync = true,
     resizable = false
     })
+
+    love.graphics.clear(40/255, 45/255, 52/255, 1)
 
     --[[
         love.window.setMode(
@@ -32,10 +34,16 @@ function love.draw()
     love.graphics.printf(
         'Hello Pong!', -- Text
         0,             -- X Coord
-        VIRTUAL_HEIGHT / 2, -- Y Coord
+        20, -- Y Coord
         VIRTUAL_WIDTH,          -- Width
         'center'               -- Alignment
     )              
+
+    love.graphics.rectangle('fill', 10, 30, 5, 20)
+
+    love.graphics.rectangle('fill', VIRTUAL_WIDTH-10, VIRTUAL_HEIGHT-50, 5, 20)
+
+    love.graphics.rectangle('fill', VIRTUAL_WIDTH/2, VIRTUAL_HEIGHT/2, 4, 4)
 
     push:apply('end')
 end
