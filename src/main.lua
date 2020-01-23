@@ -53,17 +53,23 @@ function love.draw()
     push:apply('start')
 
     love.graphics.printf(
-        'Hello Pong!', -- Text
-        0,             -- X Coord
-        20, -- Y Coord
-        VIRTUAL_WIDTH,          -- Width
-        'center'               -- Alignment
-    )         
+        'Hello Pong!',           -- Text
+        0,                       -- X Coord
+        20,                      -- Y Coord
+        VIRTUAL_WIDTH,           -- Width
+        'center'                 -- Alignment
+    )
+    
+    -- Player scores
+    love.graphics.print(tostring(player1score), VIRTUAL_WIDTH / 2 - 50, VIRTUAL_HEIGHT / 3)
+    love.graphics.print(tostring(player2score), VIRTUAL_WIDTH / 2 + 30, VIRTUAL_HEIGHT / 3)
 
+
+    -- Player boards
     love.graphics.rectangle('fill', 10, player1Y, 5, 20)
-
     love.graphics.rectangle('fill', VIRTUAL_WIDTH-10, player2Y, 5, 20)
 
+    -- Pong Ball
     love.graphics.rectangle('fill', VIRTUAL_WIDTH/2, VIRTUAL_HEIGHT/2, 4, 4)
 
     push:apply('end')
@@ -74,4 +80,3 @@ function love.keypressed(key)
         love.event.quit()
     end
 end
-
